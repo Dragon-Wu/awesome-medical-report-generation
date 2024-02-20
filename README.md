@@ -21,16 +21,20 @@ The most widely used datasets are Indiana University Chest X-ray (**[IU X-Ray](h
 
 #### NLG metrics
 
-To calculate the performance of MRG, the natural language generation (NLG) metrics, i.e., **BLEU-n**, **METEOR**, **ROUGE-n**, and **CIDEr**, are widely used. These metrics measure the match between the generated reports and reference reports annotated by professional radiologists.
-In detail, NLG Metrics are utilized to measure the descriptive accuracy of predicted reports.
+To calculate the performance of MRG, the natural language generation (NLG) metrics, i.e., **BLEU-n**, **METEOR**, **ROUGE-n**, and **CIDEr**, are widely used. These metrics measure the match between the generated reports and reference reports annotated by professional radiologists. In detail, NLG Metrics are utilized to measure the descriptive accuracy of predicted reports.
+
 **i. bilingual evaluation understudy ([BLEU-n](https://aclanthology.org/P02-1040.pdf))** is initially introduced for machine translation, which measures the n-gram precision of generated tokens. BLEU-n is usually employed in the evaluation of MRG approaches, with n ranging from 1 up to 4. This metric assesses the accuracy and coherence of the generated reports to a certain extent.
+
 **ii. metric for evaluation of translation with explicit ordering ([METEOR](https://aclanthology.org/W05-0909/))** is initially proposed for machine translation, which computes the recall of matching uni-grams from tokens in produced and gold standard reports according to their exact stemmed form and meaning.
+
 **iii. recall-oriented understudy for gisting evaluation ([ROUGE-L](https://aclanthology.org/W04-1013/) and [METEOR](https://aclanthology.org/W05-0909/))** is initially designed for summarization, which measures the similarity between the generated and gold standard report based on their longest common subsequence (LCS) tokens.
+
 **iv. Consensus-based image description evaluation ([CIDEr](https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Vedantam_CIDEr_Consensus-Based_Image_2015_CVPR_paper.pdf))** is initially designed to evaluate the quality of generated descriptions for natural images. In MRG systems, CIDEr evaluates models by rewarding topic-specific terms (terminologies in MRG) and penalizing overly frequent terms.
 
 #### CE metrics
 
 However, existing NLG evaluation metrics are not tailored to evaluate the accurate reporting of abnormalities in the image, which is the core value and urgent problem of MRG. Thus, additional **clinical efficacy (CE)** metrics are proposed to specifically measure the correctness of descriptions of clinical abnormalities. CE metrics are widely employed to capture and evaluate clinical correctness of predicted reports.
+
 To calculate CE metrics, medical labelers i.e., **[CheXpert](https://stanfordmlgroup.github.io/competitions/chexpert/)** are utilized to annotate tokens in both generated report and the gold standard one across 14 categories of diseases and support devices, producing the Precision, Recall, and F1 scores.
 
 #### Manual evaluation
