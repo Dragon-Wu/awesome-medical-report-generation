@@ -59,15 +59,55 @@ Figure 2: Three categories for MRG, including (a) Data-driven Encoder-Decoder ba
 
 ### Typical Encoder-Decoder based Approaches
 
+On the Automatic Generation of Medical Imaging Reports [[paper](https://aclanthology.org/P18-1240/)], [[code](https://github.com/ZexinYan/Medical-Report-Generation)]
+
+Hybrid Retrieval-Generation Reinforced Agent for Medical Image Report Generation [[paper](https://proceedings.neurips.cc/paper_files/paper/2018/file/e07413354875be01a996dc560274708e-Paper.pdf)]
+
+
 ### Customized Encoder-Decoder based Approaches
 
+Show, Describe and Conclude: On Exploiting the Structure Information of Chest X-ray Reports [[paper](https://aclanthology.org/P19-1657/)]
+
+Competence-based Multimodal Curriculum Learning for Medical Report Generation [[paper](https://aclanthology.org/2021.acl-long.234/)]
+
+Automatic Radiology Report Generation by Learning with Increasingly Hard Negatives [[paper](https://arxiv.org/abs/2305.07176)]
+
+Contrastive Attention for Automatic Chest X-ray Report Generation [[paper](https://aclanthology.org/2021.findings-acl.23/)]
+
+AlignTransformer: Hierarchical Alignment of Visual Regions and Disease Tags for Medical Report Generation
+[[paper](https://link.springer.com/chapter/10.1007/978-3-030-87199-4_7)]
+
+DeltaNet: Conditional Medical Report Generation for COVID-19 Diagnosis [[paper](https://aclanthology.org/2022.coling-1.261/)]
+
 ### Few-shot Learning Approaches
+
+Auto-Encoding Knowledge Graph for Unsupervised Medical Report Generation [[paper](https://proceedings.neurips.cc/paper/2021/file/876e1c59023b1a0e95808168e1a8ff89-Paper.pdf)]
+
+MedCLIP: Contrastive Learning from Unpaired Medical Images and Text [[paper](https://aclanthology.org/2022.emnlp-main.256.pdf)]
 
 ## Medical Knowledge Enhanced Frameworks
 
 ### Implicit Knowledge based Approaches
 
+Generating Radiology Reports via Memory-driven Transformer [[paper](https://aclanthology.org/2020.emnlp-main.112/)]
+
+Radiology report generation with a learned knowledge base and multi-modal alignment [[paper](https://www.sciencedirect.com/science/article/pii/S1361841523000592)]
+
 ### Explicit Knowledge based Approaches
+
+Automatic Radiology Report Generation Based on Multi-view Image Fusion and Medical Concept Enrichment [[paper](https://link.springer.com/chapter/10.1007/978-3-030-32226-7_80)]
+
+When Radiology Report Generation Meets Knowledge Graph [[paper](https://arxiv.org/abs/2002.08277)]
+
+Exploring and Distilling Posterior and Prior Knowledge for Radiology Report Generation [[paper](https://openaccess.thecvf.com/content/CVPR2021/papers/Liu_Exploring_and_Distilling_Posterior_and_Prior_Knowledge_for_Radiology_Report_CVPR_2021_paper.pdf)]
+
+Auxiliary signal-guided knowledge encoder-decoder for medical report generation [[paper](https://link.springer.com/article/10.1007/s11280-022-01013-6)]
+
+Knowledge matters: Chest radiology report generation with general and specific knowledge [[paper](https://www.sciencedirect.com/science/article/pii/S1361841522001578)]
+
+KiUT: Knowledge-injected U-Transformer for Radiology Report Generation [[paper](https://arxiv.org/abs/2306.11345)]
+
+Dynamic Graph Enhanced Contrastive Learning for Chest X-ray Report Generation [[paper](https://arxiv.org/abs/2303.10323)]
 
 ## Large Language Model based Frameworks
 
@@ -101,4 +141,3 @@ Radiology-GPT: A Large Language Model for Radiology [[paper](https://arxiv.org/a
 Towards Generalist Foundation Model for Radiology by Leveraging Web-scale 2D&3D Medical Data [[paper](https://arxiv.org/abs/2308.02463)]
 
 MAIRA-1: A specialised large multimodal model for radiology report generation [[paper](https://arxiv.org/abs/2311.13668)], [[code](https://www.microsoft.com/en-us/research/project/project-maira/)]
-
