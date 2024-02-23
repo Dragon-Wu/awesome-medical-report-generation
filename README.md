@@ -1,10 +1,13 @@
-# awesome-medical-report-generation
+# A Survey on Medical Report Generation: From Deep Neural Networks to Large Language Models
 
-A Survey on Medical Report Generation: From Deep Neural Networks to Large Language Models
+![](https://img.shields.io/badge/Status-building-brightgreen) ![](https://img.shields.io/badge/PRs-Welcome-red) 
+
+# TL;DR
+This repository contains a list of papers, codes, datasets in medical report generation (MRG) field. If you found any error, please don't hesitate to open an issue or pull request.
 
 ## Background
 
-### Problem definition
+### Problem Definition
 
 Given a radiology image, the main objective of medical report generation (MRG) is to generate a descriptive medical report as shown in Figure 1.
 Current studies leverage medical reports written by professional radiologists as the reference, whose output is expected to be as close to as possible. Formally, they adhere to standard optimization procedures by employing the cross-entropy loss to compare the generated report against the gold standard report.
@@ -13,31 +16,36 @@ Current studies leverage medical reports written by professional radiologists as
 
 Figure 1: Two representative cases in MRG, which consist of chest radiology images with their corresponding radiology reports, respectively. Formally, the goal of MRG is to generate the 'Findings' content from one or multiple radiology images.
 
-### Benchmark dataset
+### Benchmark Dataset
 
-The most widely used datasets are Indiana University Chest X-ray (**[IU X-Ray](https://openi.nlm.nih.gov/faq#collection)**) and MIMIC Chest X-ray (**[MIMIC-CXR](https://www.physionet.org/content/mimic-cxr-jpg/2.0.0/)**). In the following, we will give a detailed description.
+The most widely used datasets are Indiana University Chest X-ray (**[IU X-Ray](https://openi.nlm.nih.gov/faq#collection)**) and MIMIC Chest X-ray (**[MIMIC-CXR](https://www.physionet.org/content/mimic-cxr-jpg/2.0.0/)**). 
 
-### Evaluation metrics
+1. **IU X-Ray** is a widely-used benchmark in MRG systems, which was introduced by Indiana University. 
+It comprises 7,470 chest X-ray images associated with 3,955 radiology reports. Existing MRG studies mostly follow the data splits proposed by [Chen et al.](https://aclanthology.org/2020.emnlp-main.112/), which first exclude the samples without the ``Finding'' section, and partition IU X-Ray into the train, validation, and test sets with the ratio of 70\%, 10\%, and 20\%, respectively.
 
-#### NLG metrics
+2. **MIMIC-CXR** is a recently released large-scale benchmark dataset, which is provided by the Beth Israel Deaconess, USA. It includes 377,110 chest X-ray images and 227,835 reports. Formally, the official data splits are widely adopted. Thus, there are 368,960/2,991/5,159 cases for train/validation/test.
+
+### Evaluation Metrics
+
+#### NLG Metrics
 
 To calculate the performance of MRG, the natural language generation (NLG) metrics, i.e., **BLEU-n**, **METEOR**, **ROUGE-n**, and **CIDEr**, are widely used. These metrics measure the match between the generated reports and reference reports annotated by professional radiologists. In detail, NLG Metrics are utilized to measure the descriptive accuracy of predicted reports.
 
-**i. bilingual evaluation understudy ([BLEU-n](https://aclanthology.org/P02-1040.pdf))** is initially introduced for machine translation, which measures the n-gram precision of generated tokens. BLEU-n is usually employed in the evaluation of MRG approaches, with n ranging from 1 up to 4. This metric assesses the accuracy and coherence of the generated reports to a certain extent.
+1. **bilingual evaluation understudy ([BLEU-n](https://aclanthology.org/P02-1040.pdf))** is initially introduced for machine translation, which measures the n-gram precision of generated tokens. BLEU-n is usually employed in the evaluation of MRG approaches, with n ranging from 1 up to 4. This metric assesses the accuracy and coherence of the generated reports to a certain extent.
 
-**ii. metric for evaluation of translation with explicit ordering ([METEOR](https://aclanthology.org/W05-0909/))** is initially proposed for machine translation, which computes the recall of matching uni-grams from tokens in produced and gold standard reports according to their exact stemmed form and meaning.
+2. **metric for evaluation of translation with explicit ordering ([METEOR](https://aclanthology.org/W05-0909/))** is initially proposed for machine translation, which computes the recall of matching uni-grams from tokens in produced and gold standard reports according to their exact stemmed form and meaning.
 
-**iii. recall-oriented understudy for gisting evaluation ([ROUGE-L](https://aclanthology.org/W04-1013/) and [METEOR](https://aclanthology.org/W05-0909/))** is initially designed for summarization, which measures the similarity between the generated and gold standard report based on their longest common subsequence (LCS) tokens.
+3. **recall-oriented understudy for gisting evaluation ([ROUGE-L](https://aclanthology.org/W04-1013/) and [METEOR](https://aclanthology.org/W05-0909/))** is initially designed for summarization, which measures the similarity between the generated and gold standard report based on their longest common subsequence (LCS) tokens.
 
-**iv. Consensus-based image description evaluation ([CIDEr](https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Vedantam_CIDEr_Consensus-Based_Image_2015_CVPR_paper.pdf))** is initially designed to evaluate the quality of generated descriptions for natural images. In MRG systems, CIDEr evaluates models by rewarding topic-specific terms (terminologies in MRG) and penalizing overly frequent terms.
+4. **Consensus-based image description evaluation ([CIDEr](https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Vedantam_CIDEr_Consensus-Based_Image_2015_CVPR_paper.pdf))** is initially designed to evaluate the quality of generated descriptions for natural images. In MRG systems, CIDEr evaluates models by rewarding topic-specific terms (terminologies in MRG) and penalizing overly frequent terms.
 
-#### CE metrics
+#### CE Metrics
 
 However, existing NLG evaluation metrics are not tailored to evaluate the accurate reporting of abnormalities in the image, which is the core value and urgent problem of MRG. Thus, additional **clinical efficacy (CE)** metrics are proposed to specifically measure the correctness of descriptions of clinical abnormalities. CE metrics are widely employed to capture and evaluate clinical correctness of predicted reports.
 
-To calculate CE metrics, medical labelers i.e., **[CheXpert](https://stanfordmlgroup.github.io/competitions/chexpert/)** are utilized to annotate tokens in both generated report and the gold standard one across 14 categories of diseases and support devices, producing the Precision, Recall, and F1 scores.
+To calculate CE metrics, medical labelers, i.e., **[CheXpert](https://stanfordmlgroup.github.io/competitions/chexpert/)** are utilized to annotate tokens in both generated report and the gold standard one across 14 categories of diseases and support devices, producing the Precision, Recall, and F1 scores.
 
-#### Manual evaluation
+#### Manual Evaluation
 
 In addition to above automatic metrics, the human evaluation is also conducted in [Liu et al](https://aclanthology.org/2021.acl-long.234/), [Liu et al](https://proceedings.neurips.cc/paper/2021/file/876e1c59023b1a0e95808168e1a8ff89-Paper.pdf) etc. In these works, they invite professional radiologists to rate the quality of generated reports from faithfulness and comprehensiveness perspectives. However, the manual evaluation is both time-consuming and costly given large amount of reports and different radiologists many have conflicted opinion in labeling.
 
